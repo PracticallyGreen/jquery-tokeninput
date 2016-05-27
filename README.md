@@ -10,3 +10,24 @@ Documentation, Features and Demos
 Full details and documentation can be found on the project page here:
 
 <http://loopj.com/jquery-tokeninput/>
+
+Custom WeSpire Functions
+---------------------------------
+
+#### `onBeforeAdd`, `onAfterAdd`
+
+Both replace the default `onAdd` function, but run at either the beginning or end of the `add_token` method.
+
+**Example Usage:**
+
+`javascripts/components/file.js.coffee`
+
+```coffee
+$(‘.js-some-input’).tokenInput AppRoutes.some_path({foo: bar}),
+  onBeforeAdd: ( item ) ->
+    if item.is_disabled
+      return false
+  onAfterAdd: ( item ) ->
+    if item.is_super_cool
+      alert("Wowie, this is one cool item!")
+```
