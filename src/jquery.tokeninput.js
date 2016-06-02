@@ -656,8 +656,6 @@
             // Return false inside 'onBeforeAdd' to halt the function completely i.e. disable a token from being added.
             if (onBeforeAddCallback.call(hiddenInput,item) == false) {
               return;
-            } else {
-              onBeforeAddCallback.call(hiddenInput,item);
             }
           }
 
