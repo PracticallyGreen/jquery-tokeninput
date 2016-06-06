@@ -356,6 +356,7 @@
                                     return true;
                                   } else {
                                     add_freetagging_tokens();
+                                    return true;
                                   }
                                 } else {
                                   $(this).val("");
