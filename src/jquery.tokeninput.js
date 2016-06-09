@@ -65,7 +65,7 @@
     onResult: null,
     onCachedResult: null,
     onBeforeAdd: null,
-    onAfterAdd: null,
+    onAdd: null,
     onFreeTaggingAdd: null,
     onDelete: null,
     onReady: null,
@@ -650,7 +650,7 @@
                               // Add a token to the token list based on user input
                               function add_token (item) {
                                 var onBeforeAddCallback = $(input).data("settings").onBeforeAdd;
-                                var onAfterAddCallback = $(input).data("settings").onAfterAdd;
+                                var onAddCallback = $(input).data("settings").onAdd;
 
                                 // Execute the onBeforeAdd callback if defined
                                 if($.isFunction(onBeforeAddCallback)) {
@@ -697,9 +697,9 @@
                                 // Don't show the help dropdown, they've got the idea
                                 hide_dropdown();
 
-                                // Execute the onAfterAdd callback if defined
-                                if($.isFunction(onAfterAddCallback)) {
-                                    onAfterAddCallback.call(hiddenInput,item);
+                                // Execute the onAdd callback if defined
+                                if($.isFunction(onAddCallback)) {
+                                    onAddCallback.call(hiddenInput,item);
                                 }
                               }
 
