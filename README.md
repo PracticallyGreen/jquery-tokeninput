@@ -14,9 +14,9 @@ Full details and documentation can be found on the project page here:
 Custom WeSpire Functions
 ---------------------------------
 
-#### `onBeforeAdd`, `onAfterAdd`
+#### `onBeforeAdd`
 
-Both replace the default `onAdd` function, but run at either the beginning or end of the `add_token` method.
+Similar to the `onAdd` function, but runs at the very beginning of the `add_token` method.
 
 **Example Usage:**
 
@@ -25,9 +25,7 @@ Both replace the default `onAdd` function, but run at either the beginning or en
 ```coffee
 $(‘.js-some-input’).tokenInput AppRoutes.some_path({foo: bar}),
   onBeforeAdd: ( item ) ->
+    # When false is returned the entire `add_token` method is halted — the token is not added and the dropdown is not dismissed.
     if item.is_disabled
       return false
-  onAfterAdd: ( item ) ->
-    if item.is_super_cool
-      alert("Wowie, this is one cool item!")
 ```
